@@ -1,0 +1,41 @@
+/* Shorts — ancre principale : ytd-rich-shelf-renderer[is-shorts] (accueil 2026) */
+html.ac-hide-shorts ytd-rich-shelf-renderer[is-shorts],
+html.ac-hide-shorts ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html.ac-hide-shorts ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+html.ac-hide-shorts ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model-v2),
+html.ac-hide-shorts ytd-rich-section-renderer:has(a.reel-item-endpoint[href^="/shorts/"]),
+html.ac-hide-shorts ytd-rich-section-renderer:has(a.shortsLockupViewModelHostEndpoint[href^="/shorts/"]),
+html.ac-hide-shorts ytd-rich-shelf-renderer:has(ytm-shorts-lockup-view-model),
+html.ac-hide-shorts ytd-rich-shelf-renderer:has(ytm-shorts-lockup-view-model-v2),
+html.ac-hide-shorts ytd-rich-shelf-renderer:has(a.reel-item-endpoint[href^="/shorts/"]),
+html.ac-hide-shorts ytd-reel-shelf-renderer,
+html.ac-hide-shorts ytm-reel-shelf-renderer,
+html.ac-hide-shorts ytm-rich-section-renderer:has(a[href^="/shorts/"]),
+html.ac-hide-shorts ytm-shorts-lockup-view-model,
+html.ac-hide-shorts ytm-shorts-lockup-view-model-v2,
+html.ac-hide-shorts .shortsLockupViewModelHost,
+html.ac-hide-shorts ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model),
+html.ac-hide-shorts ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2),
+html.ac-hide-shorts ytd-rich-item-renderer:has(a.reel-item-endpoint[href^="/shorts/"]),
+html.ac-hide-shorts ytd-rich-item-renderer:has(a.shortsLockupViewModelHostEndpoint[href^="/shorts/"]),
+html.ac-hide-shorts ytd-grid-video-renderer:has(a[href^="/shorts/"]),
+html.ac-hide-shorts ytd-video-renderer:has(a[href^="/shorts/"]),
+html.ac-hide-shorts ytd-compact-video-renderer:has(a[href^="/shorts/"]),
+html.ac-hide-shorts ytd-guide-entry-renderer:has(a[href="/shorts"]),
+html.ac-hide-shorts ytd-guide-entry-renderer:has(a[href="/shorts/"]),
+html.ac-hide-shorts ytd-guide-entry-renderer:has(a[title="Shorts"]),
+html.ac-hide-shorts ytd-guide-entry-renderer:has(a[aria-label="Shorts"]),
+html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a[href="/shorts"]),
+html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a[href="/shorts/"]),
+html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a[title="Shorts"]),
+html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a[aria-label="Shorts"]),
+html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a#endpoint[href*="/shorts"]) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}

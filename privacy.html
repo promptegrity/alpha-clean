@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Politique de confidentialité — Alpha Clean</title>
+    <style>
+      :root {
+        --ink: #134e4a;
+        --muted: #5f7a76;
+        --bg: #f0fdfa;
+        --line: #cce8e4;
+      }
+      body {
+        margin: 0;
+        font: 16px/1.55 system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+        margin: 0 0 0.35rem;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 1.75rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 1.75rem 0 0.5rem;
+      }
+      p,
+      li {
+        margin: 0.4rem 0;
+      }
+      ul {
+        padding-left: 1.2rem;
+      }
+      a {
+        color: #0f766e;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Politique de confidentialité</h1>
+      <p class="meta">Alpha Clean · Dernière mise à jour : 26 juillet 2026</p>
+
+      <p>
+        Alpha Clean est une extension de navigateur qui masque certains éléments
+        d’interface sur Google Search et YouTube (aperçu IA, Mode IA, « Autres
+        questions », Shorts).
+      </p>
+
+      <h2>Données collectées</h2>
+      <p>
+        L’extension <strong>ne collecte aucune donnée personnelle</strong>. Elle
+        n’envoie aucune information à un serveur distant, n’utilise pas
+        d’analytics et n’affiche pas de publicité.
+      </p>
+
+      <h2>Stockage local</h2>
+      <p>
+        Les préférences (cases à cocher du popup) sont enregistrées via
+        <code>chrome.storage.sync</code>, uniquement sur votre compte navigateur /
+        appareil, afin de synchroniser vos réglages entre vos appareils connectés
+        au même profil Chrome. Ces réglages ne quittent pas l’écosystème Chrome
+        géré par Google pour la sync du navigateur.
+      </p>
+      <ul>
+        <li>Masquer l’aperçu IA</li>
+        <li>Masquer le Mode IA</li>
+        <li>Masquer « Autres questions »</li>
+        <li>Masquer les Shorts YouTube</li>
+      </ul>
+
+      <h2>Permissions</h2>
+      <ul>
+        <li>
+          <strong>storage</strong> — sauvegarder vos préférences.
+        </li>
+        <li>
+          <strong>Accès aux sites Google / YouTube</strong> — injecter un script
+          et une feuille de style pour masquer les éléments concernés, uniquement
+          sur ces domaines.
+        </li>
+      </ul>
+
+      <h2>Partage avec des tiers</h2>
+      <p>Aucun partage. Aucune revente. Aucun tracking.</p>
+
+      <h2>Enfants</h2>
+      <p>
+        L’extension n’est pas destinée à collecter des données auprès
+        d’enfants ; elle ne collecte de toute façon aucune donnée.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Pour toute question relative à cette politique, ouvrez une issue sur le
+        dépôt du projet ou contactez l’auteur via la fiche Chrome Web Store.
+      </p>
+
+      <hr />
+      <p class="meta">
+        Hébergez cette page (GitHub Pages, site perso, etc.) et collez son URL
+        dans la fiche Chrome Web Store → Confidentialité.
+      </p>
+    </main>
+  </body>
+</html>

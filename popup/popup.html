@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alpha Clean</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Alpha Clean</h1>
+      <p>Nettoie Google &amp; YouTube</p>
+    </header>
+
+    <section>
+      <h2>Google</h2>
+      <label class="row">
+        <span>Masquer l’aperçu IA</span>
+        <input type="checkbox" id="hideAiOverview" checked />
+      </label>
+      <label class="row">
+        <span>Masquer l’onglet Mode IA</span>
+        <input type="checkbox" id="hideAiMode" checked />
+      </label>
+      <label class="row">
+        <span>Masquer « Autres questions »</span>
+        <input type="checkbox" id="hideRelatedQuestions" checked />
+      </label>
+    </section>
+
+    <section>
+      <h2>YouTube</h2>
+      <label class="row">
+        <span>Masquer les Shorts</span>
+        <input type="checkbox" id="hideShorts" checked />
+      </label>
+    </section>
+
+    <footer>Les changements s’appliquent tout de suite sur les onglets ouverts.</footer>
+    <script src="popup.js"></script>
+  </body>
+</html>

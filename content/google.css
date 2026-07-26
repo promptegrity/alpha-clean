@@ -1,0 +1,66 @@
+/* Aperçu IA — uniquement le bloc racine (data-mcpr / EYwa3d), pas les autres .YzCcne */
+html.ac-hide-ai-overview .YzCcne[data-mcpr],
+html.ac-hide-ai-overview .YzCcne:has([jscontroller="EYwa3d"]),
+html.ac-hide-ai-overview .YzCcne:has(#m-x-content),
+html.ac-hide-ai-overview .hdzaWe:has([jscontroller="EYwa3d"]),
+html.ac-hide-ai-overview [jscontroller="EYwa3d"][jsname="dEwkXc"],
+html.ac-hide-ai-overview [jscontroller="EYwa3d"][data-aim="1"],
+html.ac-hide-ai-overview [data-ac-ai-overview] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+/* Bloc « Autres questions » (People Also Ask) — pas les wrappers génériques MjjYud/ULSxyf seuls */
+html.ac-hide-related-questions [jscontroller="Da4hkd"].cUnQKe,
+html.ac-hide-related-questions [jscontroller="Da4hkd"][jsname="bq0EGf"],
+html.ac-hide-related-questions .cUnQKe:has(.related-question-pair),
+html.ac-hide-related-questions .A6K0A:has(.related-question-pair),
+html.ac-hide-related-questions .MjjYud:has(.related-question-pair),
+html.ac-hide-related-questions .ULSxyf:has(.related-question-pair),
+html.ac-hide-related-questions .related-question-pair,
+html.ac-hide-related-questions [data-ac-related] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+/* Onglet Mode IA (udm=50) — masque le listitem entier */
+html.ac-hide-ai-mode a[href*="udm=50"],
+html.ac-hide-ai-mode a[href*="udm%3D50"],
+html.ac-hide-ai-mode a.XVMlrc[href*="udm=50"],
+html.ac-hide-ai-mode [data-id="aimode"],
+html.ac-hide-ai-mode button[jsname="B6rgad"],
+html.ac-hide-ai-mode [aria-label*="AI Mode" i],
+html.ac-hide-ai-mode [aria-label*="Mode IA" i],
+html.ac-hide-ai-mode [aria-label*="Mode Ai" i],
+html.ac-hide-ai-mode [role="listitem"]:has(a[href*="udm=50"]),
+html.ac-hide-ai-mode [role="listitem"]:has(a[href*="udm%3D50"]),
+html.ac-hide-ai-mode [role="listitem"]:has([jsname="KliEFc"]),
+html.ac-hide-ai-mode [jsname="xBNgKe"][role="listitem"]:has(a[href*="udm=50"]),
+html.ac-hide-ai-mode [jsname="xBNgKe"][role="listitem"]:has([jsname="KliEFc"]),
+html.ac-hide-ai-mode [jsname="xBNgKe"]:has(a[href*="udm=50"]),
+html.ac-hide-ai-mode [jsname="xBNgKe"]:has([jsname="KliEFc"]),
+html.ac-hide-ai-mode .olrp5b:has(a[href*="udm=50"]),
+html.ac-hide-ai-mode [data-ac-ai-mode] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
