@@ -5,7 +5,7 @@ Extension Chrome (Manifest V3) pour nettoyer Google Search et YouTube :
 - **Google** : masquer l’aperçu IA, l’onglet Mode IA et « Autres questions »
 - **YouTube** : masquer les Shorts (menu, rayons, cartes)
 
-Les toggles s’appliquent immédiatement (sans F5). Sur YouTube, réactiver les Shorts recharge l’onglet (les nœuds ont été retirés du DOM).
+Les options s’appliquent immédiatement depuis le popup.
 
 ## Installation
 
@@ -18,9 +18,10 @@ Les toggles s’appliquent immédiatement (sans F5). Sur YouTube, réactiver les
 
 Cliquez sur l’icône de l’extension pour activer/désactiver chaque filtre.
 
-## Publication
+## Confidentialité
 
-Voir [STORE.md](./STORE.md) (checklist Chrome Web Store) et [privacy.html](./privacy.html) (à héberger pour l’URL de confidentialité).
+Voir [privacy.html](./privacy.html).  
+Textes Chrome Web Store : [STORE.md](./STORE.md).
 
 ## Structure
 
@@ -36,4 +37,4 @@ STORE.md
 
 ## Notes
 
-Google et YouTube changent souvent leur DOM. Si un élément réapparaît, mettez à jour les sélecteurs dans `content/`.
+Google et YouTube changent souvent leur DOM. Si un élément réapparaît, les sélecteurs dans `content/` peuvent nécessiter une mise à jour.
