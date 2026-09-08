@@ -3,6 +3,7 @@ const DEFAULTS = {
   hideAiMode: true,
   hideRelatedQuestions: true,
   hideShorts: true,
+  hidePlayables: true,
 };
 
 const ids = Object.keys(DEFAULTS);
