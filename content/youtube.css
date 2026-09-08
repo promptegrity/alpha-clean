@@ -39,3 +39,36 @@ html.ac-hide-shorts ytd-mini-guide-entry-renderer:has(a#endpoint[href*="/shorts"
   overflow: hidden !important;
   pointer-events: none !important;
 }
+
+/* Playables — ancre : a[href="/playables"] + ytd-mini-game-card-view-model */
+html.ac-hide-playables ytd-rich-section-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytd-rich-section-renderer:has(a[href^="/playables/"]),
+html.ac-hide-playables ytd-rich-section-renderer:has(ytd-mini-game-card-view-model),
+html.ac-hide-playables ytd-rich-section-renderer:has(mini-game-card-view-model),
+html.ac-hide-playables ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-mini-game-card-shelf]),
+html.ac-hide-playables ytd-rich-shelf-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytd-rich-shelf-renderer:has(a[href^="/playables/"]),
+html.ac-hide-playables ytd-rich-shelf-renderer:has(ytd-mini-game-card-view-model),
+html.ac-hide-playables ytd-rich-shelf-renderer:has(mini-game-card-view-model),
+html.ac-hide-playables ytm-rich-section-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytm-rich-section-renderer:has(a[href^="/playables/"]),
+html.ac-hide-playables ytm-rich-shelf-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytm-rich-shelf-renderer:has(a[href^="/playables/"]),
+html.ac-hide-playables ytd-rich-item-renderer[is-mini-game-card-shelf],
+html.ac-hide-playables ytd-rich-item-renderer:has(ytd-mini-game-card-view-model),
+html.ac-hide-playables ytd-rich-item-renderer:has(mini-game-card-view-model),
+html.ac-hide-playables ytd-mini-game-card-view-model,
+html.ac-hide-playables mini-game-card-view-model,
+html.ac-hide-playables ytd-guide-entry-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytd-guide-entry-renderer:has(a[href^="/playables"]),
+html.ac-hide-playables ytd-mini-guide-entry-renderer:has(a[href="/playables"]),
+html.ac-hide-playables ytd-mini-guide-entry-renderer:has(a[href^="/playables"]) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}

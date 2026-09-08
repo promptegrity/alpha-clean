@@ -3,7 +3,7 @@
 Extension Chrome (Manifest V3) pour nettoyer Google Search et YouTube :
 
 - **Google** : masquer l’aperçu IA, l’onglet Mode IA et « Autres questions »
-- **YouTube** : masquer les Shorts (menu, rayons, cartes)
+- **YouTube** : masquer les Shorts et les jeux intégrés (menu, rayons, cartes)
 
 Les options s’appliquent immédiatement depuis le popup.
 

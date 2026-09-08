@@ -1,5 +1,5 @@
 (() => {
-  const DEFAULTS = { hideShorts: true };
+  const DEFAULTS = { hideShorts: true, hidePlayables: true };
 
   // Accueil 2026 :
   // ytd-rich-section-renderer > ytd-rich-shelf-renderer[is-shorts]
@@ -10,6 +10,11 @@
     "ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2";
   const SHORTS_LINK =
     'a.reel-item-endpoint[href^="/shorts/"], a.shortsLockupViewModelHostEndpoint[href^="/shorts/"], a[href^="/shorts/"]';
+  // Jeux intégrés (Playables) :
+  // ytd-rich-shelf-renderer > a[href="/playables"] + ytd-mini-game-card-view-model
+  const PLAYABLES_LINK = 'a[href="/playables"], a[href^="/playables/"]';
+  const PLAYABLES_CARD =
+    "ytd-mini-game-card-view-model, mini-game-card-view-model";
   const SECTION =
     "ytd-rich-section-renderer, ytm-rich-section-renderer";
   const ITEM =
@@ -21,6 +26,10 @@
     document.documentElement.classList.toggle(
       "ac-hide-shorts",
       settings.hideShorts !== false
+    );
+    document.documentElement.classList.toggle(
+      "ac-hide-playables",
+      settings.hidePlayables !== false
     );
   }
 
@@ -48,6 +57,23 @@
     if (title && (title.textContent || "").trim().toLowerCase() === "shorts") {
       return true;
     }
+    return false;
+  }
+
+  function playablesTitleMatch(text) {
+    const t = (text || "").trim().toLowerCase();
+    return t.includes("jeux intégrés") || t.includes("playables");
+  }
+
+  function isPlayablesShelf(shelf) {
+    if (!shelf) return false;
+    if (shelf.querySelector(PLAYABLES_CARD)) return true;
+    if (shelf.querySelector(PLAYABLES_LINK)) return true;
+    if (shelf.querySelector("ytd-rich-item-renderer[is-mini-game-card-shelf]")) {
+      return true;
+    }
+    const title = shelf.querySelector("#title");
+    if (title && playablesTitleMatch(title.textContent)) return true;
     return false;
   }
 
@@ -99,19 +125,76 @@
       });
   }
 
+  function hidePlayables() {
+    if (!document.documentElement.classList.contains("ac-hide-playables")) return;
+
+    document
+      .querySelectorAll(
+        "ytd-rich-shelf-renderer, ytm-rich-shelf-renderer"
+      )
+      .forEach((shelf) => {
+        if (!isPlayablesShelf(shelf)) return;
+        nuke(shelf.closest(SECTION) || shelf);
+      });
+
+    document.querySelectorAll(SECTION).forEach((section) => {
+      if (
+        section.querySelector(
+          `${PLAYABLES_CARD}, ${PLAYABLES_LINK}, ytd-rich-item-renderer[is-mini-game-card-shelf]`
+        )
+      ) {
+        nuke(section);
+      }
+    });
+
+    document
+      .querySelectorAll(
+        `ytd-rich-item-renderer[is-mini-game-card-shelf], ytd-rich-item-renderer:has(${PLAYABLES_CARD}), ytd-rich-item-renderer:has(${PLAYABLES_LINK})`
+      )
+      .forEach(nuke);
+
+    document.querySelectorAll(`${PLAYABLES_CARD}, ${PLAYABLES_LINK}`).forEach((el) => {
+      nuke(el.closest(SECTION) || el.closest(ITEM) || el);
+    });
+
+    document
+      .querySelectorAll(
+        'ytd-guide-entry-renderer a[href="/playables"], ytd-guide-entry-renderer a[href^="/playables"], ytd-mini-guide-entry-renderer a[href="/playables"], ytd-mini-guide-entry-renderer a[href^="/playables"]'
+      )
+      .forEach((a) => {
+        nuke(
+          a.closest(
+            "ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, tp-yt-paper-item"
+          ) || a
+        );
+      });
+  }
+
+  function scan() {
+    hideShorts();
+    hidePlayables();
+  }
+
   function refresh() {
     chrome.storage.sync.get(DEFAULTS, (stored) => {
-      const enabled = stored.hideShorts !== false;
-      const wasEnabled = document.documentElement.classList.contains("ac-hide-shorts");
+      const shortsOn = stored.hideShorts !== false;
+      const playablesOn = stored.hidePlayables !== false;
+      const wasShorts = document.documentElement.classList.contains("ac-hide-shorts");
+      const wasPlayables = document.documentElement.classList.contains(
+        "ac-hide-playables"
+      );
 
-      // Réafficher les Shorts : les nœuds ont été retirés → reload (pas au premier boot)
-      if (bootstrapped && wasEnabled && !enabled) {
+      // Réafficher : les nœuds ont été retirés → reload (pas au premier boot)
+      if (
+        bootstrapped &&
+        ((wasShorts && !shortsOn) || (wasPlayables && !playablesOn))
+      ) {
         location.reload();
         return;
       }
 
-      apply({ hideShorts: enabled });
-      if (enabled) hideShorts();
+      apply({ hideShorts: shortsOn, hidePlayables: playablesOn });
+      if (shortsOn || playablesOn) scan();
       bootstrapped = true;
     });
   }
@@ -121,7 +204,7 @@
 
   chrome.storage.onChanged.addListener((changes, area) => {
     if (area !== "sync") return;
-    if ("hideShorts" in changes) refresh();
+    if ("hideShorts" in changes || "hidePlayables" in changes) refresh();
   });
 
   let scheduled = false;
@@ -130,12 +213,12 @@
     scheduled = true;
     requestAnimationFrame(() => {
       scheduled = false;
-      hideShorts();
+      scan();
     });
   }
 
   const startObserver = () => {
-    hideShorts();
+    scan();
     new MutationObserver(scheduleScan).observe(document.documentElement, {
       childList: true,
       subtree: true,
@@ -148,6 +231,6 @@
     startObserver();
   }
 
-  [300, 800, 1500, 3000, 6000].forEach((ms) => setTimeout(hideShorts, ms));
-  setInterval(hideShorts, 2000);
+  [300, 800, 1500, 3000, 6000].forEach((ms) => setTimeout(scan, ms));
+  setInterval(scan, 2000);
 })();
